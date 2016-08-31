@@ -1,0 +1,18 @@
+﻿빌드 시작: 2016-06-28 오후 3:56:49
+     1>2 노드의 "D:\1425 함시환\Rogue_like_manegerment_tool\Rogue_like_manegerment_tool.vcxproj" 프로젝트(Rebuild 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>d:\1425 함시환\rogue_like_manegerment_tool\main.cpp(53): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 'scanf' 선언을 참조하십시오.
+     1>d:\1425 함시환\rogue_like_manegerment_tool\main.cpp(54): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 'sprintf' 선언을 참조하십시오.
+     1>d:\1425 함시환\rogue_like_manegerment_tool\main.cpp(55): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' 선언을 참조하십시오.
+     1>d:\1425 함시환\rogue_like_manegerment_tool\main.cpp(63): error C3861: 'MakingMap': 식별자를 찾을 수 없습니다.
+     1>d:\1425 함시환\rogue_like_manegerment_tool\main.cpp(96): error C3861: 'MakingMap': 식별자를 찾을 수 없습니다.
+     1>"D:\1425 함시환\Rogue_like_manegerment_tool\Rogue_like_manegerment_tool.vcxproj" 프로젝트를 빌드했습니다(Rebuild 대상). - 실패
+
+빌드하지 못했습니다.
+
+경과 시간: 00:00:00.81
