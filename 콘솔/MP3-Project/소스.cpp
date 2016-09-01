@@ -9,7 +9,7 @@ FMOD_SOUND ** g_arr_Sound;
 
 FMOD_SYSTEM * g_System;
 FMOD_SOUND * g_Sound;
-int h_Fsys = 0; //°î ¼ø¼­´ë·Î Á¤·ÄµÇ´Â ¹è¿­ ÇÚµé ½Ã½ºÅÛ¿ë.
+int h_Fsys = 0; //ê³¡ ìˆœì„œëŒ€ë¡œ ì •ë ¬ë˜ëŠ” ë°°ì—´ í•¸ë“¤ ì‹œìŠ¤í…œìš©.
 int h_Fsnd = 0;
 int SongNumber = 0;
 
@@ -22,10 +22,10 @@ void Init()
 	int result = 1;
 	handle = _findfirst(".\\*.mp3", &fd);
 
-	//°îÀÇ °¹¼ö È®ÀÎ
+	//ê³¡ì˜ ê°¯ìˆ˜ í™•ì¸
 	if (handle ==  1)
 	{
-		printf("³ë ÆÄÀÏ \n");
+		printf("ë…¸ íŒŒì¼ \n");
 		return;
 	}
 
@@ -35,21 +35,21 @@ void Init()
 		result = _findnext(handle, &fd);
 		SongNumber++;
 	}
-	//³¡
+	//ë
 
-	//¹è¿­ ÇÒ´ç
+	//ë°°ì—´ í• ë‹¹
 	g_SongName = (char **)malloc(sizeof(char)* SongNumber);
 	g_arr_Sound = (FMOD_SOUND **)malloc(sizeof(FMOD_SOUND *)* SongNumber);
-	//³¡
+	//ë
 
-	//FMOD¿¡ ´ëÀÔ
+	//FMODì— ëŒ€ì…
 	handle = _findfirst(".\\*.mp3", &fd);
-	int i = 0;       //ÀÓ½Ã Á¦¾î¿ë º¯¼ö
+	int i = 0;       //ì„ì‹œ ì œì–´ìš© ë³€ìˆ˜
 	result = 0;		
-	//FMOD ½Ã½ºÅÛ ÃÊ±âÈ­
+	//FMOD ì‹œìŠ¤í…œ ì´ˆê¸°í™”
 	FMOD_System_Create(&g_System); 
 	FMOD_System_Init(g_System, 32, FMOD_INIT_NORMAL, NULL);
-	//³¡
+	//ë
 	while (result != -1)
 	{
 		g_SongName[i] = (char *)malloc(strlen(fd.name));
@@ -73,16 +73,18 @@ void Release()
 
 void Play(int SongNum)
 {
-	static int OldMusic = -1; //ÀüÀ½¾Ç, -1ÀÌ¸é ¾ÆÁ÷ Àü À½¾ÇÀÌ ¾ø¾ú´ø »óÈ²
-	int MyMusic = SongNum; //ÇöÀç À½¾Ç.
+	static int OldMusic = -1; //ì „ìŒì•…, -1ì´ë©´ ì•„ì§ ì „ ìŒì•…ì´ ì—†ì—ˆë˜ ìƒí™©
+	int MyMusic = SongNum; //í˜„ì¬ ìŒì•….
 
 	if ((OldMusic != -1) && (OldMusic != MyMusic))
 	{
+		free(g_SongName[OldMusic]);
 		FMOD_Sound_Release(g_arr_Sound[OldMusic]);
 	}
 	
 	if (OldMusic != MyMusic)
 	{
+		g_SongName[SongNum] = (FMOD *)malloc(sizeof(FMOD_SOUND *)); //ë°°ì—´ í• ë‹¹ì€ ëë‚¬ì§€ë§Œ ë°°ì—´ ë‚´ë¶€í• ë‹¹ì´ ëë‚˜ì§€ ì•Šì•˜ë‹¤.
 		FMOD_System_CreateSound(g_System, g_SongName[SongNum], FMOD_LOOP_NORMAL, NULL, &g_arr_Sound[SongNum]);
 	}
 
